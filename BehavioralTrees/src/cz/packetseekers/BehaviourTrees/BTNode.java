@@ -9,7 +9,7 @@ import java.util.ArrayList;
  * @author Michal Konecny
  *
  */
-public abstract class BTNode {
+public abstract class BTNode implements Comparable<BTNode> {
 
 	private int weight = 0;
 	private BTNode parent = null;
@@ -60,25 +60,6 @@ public abstract class BTNode {
 	}
 
 	/**
-	 * Returns next {@link BTNode} that will be executed after this one. Depends
-	 * on weight of node. If more nodes have same weight it returns node that is
-	 * on lower index.
-	 * 
-	 * @return Node to be executed
-	 */
-	public BTNode getNextNode() {
-		BTNode max = this.children.get(0);
-
-		for (BTNode child : this.children) {
-			if (child.getWeight() > max.getWeight()) {
-				max = child;
-			}
-		}
-
-		return max;
-	}
-
-	/**
 	 * Returns {@link Status} of current Node.
 	 * @return {@link Status}
 	 */
@@ -100,7 +81,7 @@ public abstract class BTNode {
 	 * @param node Node to be add
 	 */
 	public void addChild(BTNode node) {
-		this.addChild(node);
+		this.getChildren().add(node);
 	}
 
 	/**
@@ -108,7 +89,9 @@ public abstract class BTNode {
 	 * @param index Index of node to be removed
 	 */
 	public void removeChild(int index) {
-		this.removeChild(index);
+		if (index >= 0 && index < this.getChildren().size()) {
+		this.getChildren().remove(index);
+		}
 	}
 	
 	/**
@@ -141,7 +124,7 @@ public abstract class BTNode {
 	 * @param positive
 	 *            If true weight goes up, else down.
 	 */
-	public void adjustWeight(Boolean positive) {
+	protected void adjustWeight(Boolean positive) {
 		if (positive) {
 			this.weight += 1;
 		} else
@@ -156,5 +139,10 @@ public abstract class BTNode {
 	 */
 	public void changeStatus(Status status) {
 		this.status = status;
+	}
+
+	@Override
+	public int compareTo(BTNode o) {
+		return this.weight - o.weight;
 	}
 }
