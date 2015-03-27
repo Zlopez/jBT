@@ -1,7 +1,13 @@
-package cz.packetseekers.BehavioralTrees.interfaces;
+package cz.packetseekers.BehaviourTrees.interfaces;
 
 import java.util.ArrayList;
 
+/**
+ * Interface for every type of node in the tree.
+ * 
+ * @author Michal Konecny
+ *
+ */
 public interface BTNode {
 
 	/**
