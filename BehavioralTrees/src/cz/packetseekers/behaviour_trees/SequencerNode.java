@@ -1,5 +1,7 @@
 package cz.packetseekers.behaviour_trees;
 
+import cz.packetseekers.behaviou_trees.interfaces.ExecutableBTNode;
+
 /**
  * {@link SequencerNode} works like logical AND node. It executes children nodes
  * until one of them fail or all succeeds.
@@ -7,7 +9,7 @@ package cz.packetseekers.behaviour_trees;
  * @author Michal Konecny
  *
  */
-public class SequencerNode extends BTNode {
+public class SequencerNode extends BTNode implements ExecutableBTNode {
 
 	/**
 	 * {@inheritDoc}
@@ -22,7 +24,7 @@ public class SequencerNode extends BTNode {
 
 		for (BTNode child : this.getChildren()) {
 			this.changeStatus(Status.WAITING);
-			child.execute(object);
+			((ExecutableBTNode) child).execute(object);
 			result = child.getResult();
 
 			if (!result)

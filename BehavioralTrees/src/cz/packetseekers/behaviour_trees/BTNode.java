@@ -29,18 +29,6 @@ public abstract class BTNode implements Comparable<BTNode> {
 	}
 
 	/**
-	 * Execute method for node. It must implement the way node works and set
-	 * result variable.
-	 * 
-	 * @param object
-	 *            Optional object to work with, it may contains everything
-	 *            {@link BTNode} needs to work with.
-	 */
-	public void execute(Object object) {
-
-	}
-
-	/**
 	 * Returns weight of this node. It represents the decision weight. 
 	 * If there is more nodes we can choose from we always choose {@link BTNode} with highest weight.
 	 * Weight is automatically adjusted every time {@link BTNode} fails or succeed. 

@@ -1,5 +1,7 @@
 package cz.packetseekers.behaviour_trees;
 
+import cz.packetseekers.behaviou_trees.interfaces.ExecutableBTNode;
+
 
 /**
  * {@link NegatorNode} works as logical NOT node. Reverts the result from child
@@ -8,7 +10,7 @@ package cz.packetseekers.behaviour_trees;
  * @author Michal Konecny
  *
  */
-public class NegatorNode extends BTNode {
+public class NegatorNode extends BTNode implements ExecutableBTNode {
 
 	/**
 	 * {@inheritDoc}
@@ -24,7 +26,7 @@ public class NegatorNode extends BTNode {
 		this.changeStatus(Status.WAITING);
 
 		for (BTNode child : this.getChildren()) {
-			child.execute(object);
+			((ExecutableBTNode) child).execute(object);
 			result = !child.getResult();
 		}
 

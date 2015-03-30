@@ -3,6 +3,8 @@ package cz.packetseekers.behaviour_trees;
 import java.util.ArrayList;
 import java.util.Collections;
 
+import cz.packetseekers.behaviou_trees.interfaces.ExecutableBTNode;
+
 /**
  * {@link SelectorNode} works as logical OR in Behaviour Tree. It can choose
  * from multiple nodes. Priority of nodes are calculated based on their decision
@@ -11,7 +13,7 @@ import java.util.Collections;
  * @author Michal Konecny
  *
  */
-public class SelectorNode extends BTNode {
+public class SelectorNode extends BTNode implements ExecutableBTNode {
 
 	/**
 	 * {@inheritDoc}
@@ -33,7 +35,7 @@ public class SelectorNode extends BTNode {
 
 		for (BTNode child : sortedByWeight) {
 			this.changeStatus(Status.WAITING);
-			child.execute(object);
+			((ExecutableBTNode) child).execute(object);
 			this.changeStatus(Status.IN_PROGRESS);
 			result = child.getResult();
 
