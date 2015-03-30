@@ -149,7 +149,21 @@ public class BehaviourTree {
 			throw new NodeNotFoundException("Node not found in tree.");
 	}
 
+	/**
+	 * Executes {@link BehaviourTree} from root node. Execution ends if solution
+	 * is found or all possibilities are tried.
+	 * 
+	 * @param object
+	 *            Optional object with data needed for execution.
+	 * @return Result of execution. True if solution is found or false
+	 *         otherwise.
+	 */
 	public Boolean execute(Object object) {
+
+		for (BTNode node : nodes) {
+			node.changeStatus(Status.NOT_STARTED);
+		}
+
 		Thread treeThread = new Thread(new Runnable() {
 
 			@Override
