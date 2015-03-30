@@ -2,6 +2,8 @@ package cz.packetseekers.behaviour_trees;
 
 import java.util.ArrayList;
 
+import cz.packetseekers.behaviour_trees.utilities.Debug;
+
 /**
  * {@link BTNode} is abstract class that is inherited by all types of nodes in
  * Behaviour tree.
@@ -126,6 +128,8 @@ public abstract class BTNode implements Comparable<BTNode> {
 	 *            Status to set.
 	 */
 	public synchronized void changeStatus(Status status) {
+		Debug.debug("Status changed from " + this.status + " to " + status
+				+ ".");
 		this.status = status;
 	}
 
@@ -140,6 +144,7 @@ public abstract class BTNode implements Comparable<BTNode> {
 	 * @return result
 	 */
 	public Boolean getResult() {
+		Debug.debug("Result = " + this.result);
 		return result;
 	}
 

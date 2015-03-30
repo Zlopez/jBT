@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 
 import cz.packetseekers.behaviou_trees.interfaces.ExecutableBTNode;
+import cz.packetseekers.behaviour_trees.utilities.Debug;
 
 /**
  * {@link SelectorNode} works as logical OR in Behaviour Tree. It can choose
@@ -25,7 +26,7 @@ public class SelectorNode extends BTNode implements ExecutableBTNode {
 	 */
 	@Override
 	public void execute(Object object) {
-
+		Debug.debug("Selector node started.");
 		this.changeStatus(Status.IN_PROGRESS);
 
 		Boolean result = false;

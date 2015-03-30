@@ -1,6 +1,7 @@
 package cz.packetseekers.behaviour_trees;
 
 import cz.packetseekers.behaviou_trees.interfaces.ExecutableBTNode;
+import cz.packetseekers.behaviour_trees.utilities.Debug;
 
 /**
  * {@link SequencerNode} works like logical AND node. It executes children nodes
@@ -19,6 +20,7 @@ public class SequencerNode extends BTNode implements ExecutableBTNode {
 	 */
 	@Override
 	public void execute(Object object) {
+		Debug.debug("Sequencer node started.");
 		this.changeStatus(Status.IN_PROGRESS);
 		Boolean result = false;
 

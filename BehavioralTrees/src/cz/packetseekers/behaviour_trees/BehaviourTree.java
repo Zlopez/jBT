@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import cz.packetseekers.behaviou_trees.interfaces.ExecutableBTNode;
 import cz.packetseekers.behaviour_trees.BTNode.Status;
 import cz.packetseekers.behaviour_trees.exceptions.NodeNotFoundException;
+import cz.packetseekers.behaviour_trees.utilities.Debug;
 
 /**
  * This class represents tree itself. It manages the run of behaviour tree and
@@ -109,8 +110,10 @@ public class BehaviourTree {
 	 * when structure of tree is changed.
 	 */
 	private void initTree() {
+		Debug.debug("Building tree...");
 		this.nodes.clear();
 		this.nodes.addAll(getAllChildren(root, new ArrayList<BTNode>()));
+		Debug.debug("Tree build.");
 	}
 
 	/**
@@ -172,6 +175,8 @@ public class BehaviourTree {
 			}
 		});
 
+		Debug.debug("Starting execution of tree...");
+
 		treeThread.start();
 
 		while (root.getStatus() != Status.DONE) {
@@ -181,6 +186,8 @@ public class BehaviourTree {
 				e.printStackTrace();
 			}
 		}
+		
+		Debug.debug("Execution ended.");
 
 		return root.getResult();
 	}

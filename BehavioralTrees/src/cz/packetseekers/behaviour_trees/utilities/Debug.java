@@ -23,7 +23,7 @@ public class Debug {
 					.getLineNumber();
 
 			System.out.println(className + "." + methodName + "():"
-					+ lineNumber);
+					+ lineNumber + " \"" + message + "\"");
 		}
 	}
 }
