@@ -18,7 +18,7 @@ public abstract class LeafNode extends BTNode {
 	/**
 	 * {@inheritDoc}
 	 * 
-	 * For {@link LeafNode} this always returns null.
+	 * For {@link LeafNode} this always returns empty {@link ArrayList}.
 	 */
 	@Override
 	public ArrayList<BTNode> getChildren() {
