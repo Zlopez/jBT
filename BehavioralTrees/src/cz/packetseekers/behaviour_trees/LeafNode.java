@@ -22,7 +22,7 @@ public abstract class LeafNode extends BTNode {
 	 */
 	@Override
 	public ArrayList<BTNode> getChildren() {
-		return null;
+		return new ArrayList<BTNode>();
 	}
 
 	/**
