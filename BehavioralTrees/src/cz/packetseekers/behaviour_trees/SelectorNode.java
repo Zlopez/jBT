@@ -1,4 +1,4 @@
-package cz.packetseekers.BehaviourTrees;
+package cz.packetseekers.behaviour_trees;
 
 import java.util.ArrayList;
 import java.util.Collections;

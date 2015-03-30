@@ -1,9 +1,9 @@
-package cz.packetseekers.BehaviourTrees;
+package cz.packetseekers.behaviour_trees;
 
 import java.util.ArrayList;
 
-import cz.packetseekers.BehaviourTrees.BTNode.Status;
-import cz.packetseekers.BehaviourTrees.Exceptions.NodeNotFoundException;
+import cz.packetseekers.behaviour_trees.BTNode.Status;
+import cz.packetseekers.behaviour_trees.exceptions.NodeNotFoundException;
 
 /**
  * This class represents tree itself. It manages the run of behaviour tree and

@@ -1,4 +1,4 @@
-package cz.packetseekers.BehaviourTrees.Utilities;
+package cz.packetseekers.behaviour_trees.utilities;
 
 /**
  * Class for debug purpose. It prints class name and line number in debug text.

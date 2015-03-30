@@ -1,4 +1,4 @@
-package cz.packetseekers.BehaviourTrees;
+package cz.packetseekers.behaviour_trees;
 
 /**
  * {@link SequencerNode} works like logical AND node. It executes children nodes

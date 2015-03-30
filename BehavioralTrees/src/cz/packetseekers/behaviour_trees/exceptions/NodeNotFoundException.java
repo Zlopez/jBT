@@ -1,4 +1,4 @@
-package cz.packetseekers.BehaviourTrees.Exceptions;
+package cz.packetseekers.behaviour_trees.exceptions;
 
 
 /**
