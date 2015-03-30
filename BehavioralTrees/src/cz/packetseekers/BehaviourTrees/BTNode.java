@@ -63,7 +63,7 @@ public abstract class BTNode implements Comparable<BTNode> {
 	 * Returns {@link Status} of current Node.
 	 * @return {@link Status}
 	 */
-	public Status getStatus() {
+	public synchronized Status getStatus() {
 		return this.status;
 	}
 	
@@ -137,7 +137,7 @@ public abstract class BTNode implements Comparable<BTNode> {
 	 * @param status
 	 *            Status to set.
 	 */
-	public void changeStatus(Status status) {
+	public synchronized void changeStatus(Status status) {
 		this.status = status;
 	}
 
