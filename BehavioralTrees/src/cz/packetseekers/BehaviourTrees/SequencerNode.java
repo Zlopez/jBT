@@ -16,18 +16,20 @@ public class SequencerNode extends BTNode {
 	 * fails or all are executed.
 	 */
 	@Override
-	public Boolean execute(Object object) {
+	public void execute(Object object) {
 		this.changeStatus(Status.IN_PROGRESS);
 		Boolean result = false;
 
 		for (BTNode child : this.getChildren()) {
 			this.changeStatus(Status.WAITING);
-			result = child.execute(object);
+			child.execute(object);
+			result = child.getResult();
 
 			if (!result)
 				break;
 		}
+
+		this.setResult(result);
 		this.changeStatus(Status.DONE);
-		return result;
 	}
 }

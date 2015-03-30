@@ -15,6 +15,7 @@ public abstract class BTNode implements Comparable<BTNode> {
 	private BTNode parent = null;
 	private Status status = Status.NOT_STARTED;
 	private ArrayList<BTNode> children = new ArrayList<BTNode>();
+	private Boolean result = false;
 
 	/**
 	 * Status of {@link BTNode}. 
@@ -28,16 +29,15 @@ public abstract class BTNode implements Comparable<BTNode> {
 	}
 
 	/**
-	 * Execute method for node. It must implement the way node works and returns
-	 * true or false.
+	 * Execute method for node. It must implement the way node works and set
+	 * result variable.
 	 * 
 	 * @param object
 	 *            Optional object to work with, it may contains everything
 	 *            {@link BTNode} needs to work with.
-	 * @return succeed or failure
 	 */
-	public Boolean execute(Object object) {
-		return true;
+	public void execute(Object object) {
+
 	}
 
 	/**
@@ -144,5 +144,24 @@ public abstract class BTNode implements Comparable<BTNode> {
 	@Override
 	public int compareTo(BTNode o) {
 		return this.weight - o.weight;
+	}
+
+	/**
+	 * Returns result value.
+	 * 
+	 * @return result
+	 */
+	public Boolean getResult() {
+		return result;
+	}
+
+	/**
+	 * Sets result of this Node.
+	 * 
+	 * @param result
+	 *            Result to set
+	 */
+	protected void setResult(Boolean result) {
+		this.result = result;
 	}
 }

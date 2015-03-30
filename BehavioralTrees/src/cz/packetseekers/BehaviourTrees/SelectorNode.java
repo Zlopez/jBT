@@ -22,7 +22,7 @@ public class SelectorNode extends BTNode {
 	 * adjusted.
 	 */
 	@Override
-	public Boolean execute(Object object) {
+	public void execute(Object object) {
 
 		this.changeStatus(Status.IN_PROGRESS);
 
@@ -33,8 +33,9 @@ public class SelectorNode extends BTNode {
 
 		for (BTNode child : sortedByWeight) {
 			this.changeStatus(Status.WAITING);
-			result = child.execute(object);
+			child.execute(object);
 			this.changeStatus(Status.IN_PROGRESS);
+			result = child.getResult();
 
 			if (!result) {
 				child.adjustWeight(false);
@@ -44,8 +45,8 @@ public class SelectorNode extends BTNode {
 			}
 		}
 
+		this.setResult(result);
 		this.changeStatus(Status.DONE);
-		return result;
 
 	}
 }

@@ -16,7 +16,7 @@ public class NegatorNode extends BTNode {
 	 * {@link NegatorNode} only reverts result from child node.
 	 */
 	@Override
-	public Boolean execute(Object object) {
+	public void execute(Object object) {
 		this.changeStatus(Status.IN_PROGRESS);
 
 		Boolean result = false;
@@ -24,11 +24,12 @@ public class NegatorNode extends BTNode {
 		this.changeStatus(Status.WAITING);
 
 		for (BTNode child : this.getChildren()) {
-			result = child.execute(object);
+			child.execute(object);
+			result = !child.getResult();
 		}
-		this.changeStatus(Status.DONE);
 
-		return !result;
+		this.setResult(result);
+		this.changeStatus(Status.DONE);
 	}
 
 	/**

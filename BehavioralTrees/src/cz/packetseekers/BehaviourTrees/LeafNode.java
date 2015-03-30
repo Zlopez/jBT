@@ -19,8 +19,8 @@ public abstract class LeafNode extends BTNode {
 	 * must be done manually by developer in this method.
 	 */
 	@Override
-	public Boolean execute(Object object) {
-		return true;
+	public void execute(Object object) {
+
 	}
 
 	/**
