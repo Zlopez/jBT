@@ -113,7 +113,7 @@ public class BehaviourTree {
 		Debug.debug("Building tree...");
 		this.nodes.clear();
 		this.nodes.addAll(getAllChildren(root, new ArrayList<BTNode>()));
-		Debug.debug("Tree build.");
+		Debug.debug("Tree build. Number of nodes: " + this.nodes.size());
 	}
 
 	/**
@@ -130,7 +130,7 @@ public class BehaviourTree {
 			ArrayList<BTNode> nodes) {
 		nodes.addAll(root.getChildren());
 		for (BTNode child : root.getChildren()) {
-			nodes.addAll(getAllChildren(child, nodes));
+			getAllChildren(child, nodes);
 		}
 		return nodes;
 	}
