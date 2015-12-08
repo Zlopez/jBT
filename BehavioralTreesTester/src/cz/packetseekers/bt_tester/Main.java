@@ -26,9 +26,13 @@ public class Main {
 
 	private static BehaviourTree initTree() {
 		SequencerNode root = new SequencerNode();
+		root.setName("Root");
 		NegatorNode not = new NegatorNode();
+		not.setName("Not");
 		CheckDoorLocked checkDoor = new CheckDoorLocked();
+		checkDoor.setName("checkDoor");
 		OpenDoorNode openDoor = new OpenDoorNode();
+		openDoor.setName("openDoor");
 
 		root.addChild(not);
 		root.addChild(openDoor);

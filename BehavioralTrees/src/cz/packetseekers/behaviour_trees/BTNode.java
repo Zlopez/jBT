@@ -18,6 +18,7 @@ public abstract class BTNode implements Comparable<BTNode> {
 	private Status status = Status.NOT_STARTED;
 	private ArrayList<BTNode> children = new ArrayList<BTNode>();
 	private Boolean result = false;
+	private String name = "";
 
 	/**
 	 * Status of {@link BTNode}. 
@@ -67,8 +68,10 @@ public abstract class BTNode implements Comparable<BTNode> {
 	}
 	
 	/**
-	 * Adds new {@link BTNod}e as child.
-	 * @param node Node to be add
+	 * Adds new {@link BTNode} as child.
+	 * 
+	 * @param node
+	 *            Node to be add
 	 */
 	public void addChild(BTNode node) {
 		this.getChildren().add(node);
@@ -127,8 +130,9 @@ public abstract class BTNode implements Comparable<BTNode> {
 	 * @param status
 	 *            Status to set.
 	 */
-	public synchronized void changeStatus(Status status) {
-		Debug.debug("Status changed from " + this.status + " to " + status
+	protected synchronized void changeStatus(Status status) {
+		Debug.debug("Node \"" + this.getName() + "\": Status changed from "
+				+ this.status + " to " + status
 				+ ".");
 		this.status = status;
 	}
@@ -156,5 +160,23 @@ public abstract class BTNode implements Comparable<BTNode> {
 	 */
 	protected void setResult(Boolean result) {
 		this.result = result;
+	}
+
+	/**
+	 * Returns name of this node
+	 * 
+	 * @return name of node
+	 */
+	public String getName() {
+		return name;
+	}
+
+	/**
+	 * Sets new name of this node.
+	 * 
+	 * @param name
+	 */
+	public void setName(String name) {
+		this.name = name;
 	}
 }
