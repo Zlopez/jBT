@@ -2,7 +2,7 @@ package cz.packetseekers.behaviour_trees;
 
 import java.util.ArrayList;
 
-import cz.packetseekers.behaviou_trees.interfaces.ExecutableBTNode;
+import cz.packetseekers.behaviour_trees.interfaces.ExecutableBTNode;
 
 /**
  * Leaf node in {@link BehaviourTree}. It represents the action node, that will

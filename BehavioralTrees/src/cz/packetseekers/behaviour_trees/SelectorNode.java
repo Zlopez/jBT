@@ -3,7 +3,7 @@ package cz.packetseekers.behaviour_trees;
 import java.util.ArrayList;
 import java.util.Collections;
 
-import cz.packetseekers.behaviou_trees.interfaces.ExecutableBTNode;
+import cz.packetseekers.behaviour_trees.interfaces.ExecutableBTNode;
 import cz.packetseekers.behaviour_trees.utilities.Debug;
 
 /**

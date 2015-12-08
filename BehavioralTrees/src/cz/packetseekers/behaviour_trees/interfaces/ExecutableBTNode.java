@@ -1,4 +1,4 @@
-package cz.packetseekers.behaviou_trees.interfaces;
+package cz.packetseekers.behaviour_trees.interfaces;
 
 import cz.packetseekers.behaviour_trees.BTNode;
 import cz.packetseekers.behaviour_trees.LeafNode;

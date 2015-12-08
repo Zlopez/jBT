@@ -1,7 +1,7 @@
 package cz.packetseekers.bt_tester.nodes;
 
-import cz.packetseekers.behaviou_trees.interfaces.ExecutableBTNode;
 import cz.packetseekers.behaviour_trees.LeafNode;
+import cz.packetseekers.behaviour_trees.interfaces.ExecutableBTNode;
 import cz.packetseekers.bt_tester.tree.objects.Door;
 
 /**
